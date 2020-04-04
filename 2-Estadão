@@ -1,0 +1,9 @@
+import requests
+from bs4 import BeautifulSoup
+
+def noticia(url):
+    req = requests.get(url)
+    soup = BeautifulSoup(req.content, 'html.parser')
+    print(soup.find(class_='n--noticia__content content').get_text())
+    
+noticia('https://economia.estadao.com.br/noticias/geral,dolar-abre-negociacoes-em-alta-nesta-sexta-e-volta-a-bater-em-r-5-28,70003258973')
